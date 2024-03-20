@@ -3,8 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="About US" content="education">
+    <title>ABOUT US</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Rubik+Mono+One&display=swap" rel="stylesheet">
+
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap'); 
+        
+        *{font-family: 'Lato', sans-serif;}
         body {
             background-color: #8c6b3e;
             color: #ffffff;
@@ -36,13 +42,16 @@
             padding-top: 40px;
         }
         
-        .header{
-            position: relative;
+        ._header{
+    position: relative;
+            /* position: absolute; */
+            width: 100%;
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: 0.5fr 1.5fr;
             grid-template-rows: 1fr;
             grid-column-gap: 0px;
             grid-row-gap: 0px;
+            margin-bottom: 30px;
             .logo
             {
                 img{
@@ -59,7 +68,7 @@
                 align-items: end;
                 margin-right: 20px;
                 margin-top: 10px;
-            
+    
     
                 span{
                     content: "";
@@ -77,11 +86,64 @@
                     }
                 }
             }
+            .links{
+                align-self: center;
+                justify-self: end;
+                font-family: 'Lato', sans-serif;
+               
+                
+            
+            margin-right:  36px;
+
+
+            a{
+                text-decoration: none;
             }
+            
+            a:not(:last-child){
+                margin-right: 30px;
+                font-size: 15px;
+                
+                color: rgb(255, 255, 255);
+                font-size: b;
+                padding: 10px 18px;
+                transition: all 150ms ease-in-out;
+                border-radius: 50px;
+                
+                
+                
+                &:hover{
+                    background-color: rgba(255, 255, 255, 0.3);
+
+                }
+            }
+            
+            a:last-child{
+                font-size: 15px;
+                
+                color: black;
+                text-transform: uppercase;
+                font-weight: 700;
+                padding: 15px 20px;
+                border-radius: 50px;
+                background-color: white;
+                cursor: pointer;
+                transition: all 200ms ease-in-out;
+
+                &:hover{
+                    background-color: rgba(255, 255, 255, 0.3);
+                    color:white;
+
+                }
+            }
+
+        }}
+
         .Titl{text-align: center;
             font-size: 69px;
             font-weight: bold;
             padding: 20px;
+            
         }
         .td2{padding-left: 20px;}
         .section_2{
@@ -100,14 +162,16 @@
     <link rel="icon" type="image/png" href="Logo.png">
 </head>
 <body>
-    <div class="header">
+    <div class="_header">
         <div class="logo"><img src="Logo.png" alt=""></div>
-        <div class="hamburgar">
-            <span></span>
-            <span></span>
-            <span></span>
+       
+        <div class="links text-uppercase">
+            <a href="#">HOME</a>
+            <a href="#">CONTACT US</a>
+            <a href="#">ABOUT US</a>
+            <a href="index.html">PROJECTS</a>
+            <a href="sign_in.html">REGISTER</a>
         </div>
-            
     </div>
     <div class="Titl">ABOUT US</div>
 
