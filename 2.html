@@ -14,12 +14,7 @@
 
 </head> 
 
-<script>
-	function thankYou() {
-	  alert("Thank you for your feedback!");
-	  window.location.href = "index.html";
-	}
-</script>
+
 
 
 <style>
@@ -66,13 +61,13 @@ form {
 } 
 
 .radio-group { 
-	display: flex; 
-	margin-bottom: 16px; 
+	width: 7vw;
+	 
+	 
+	 
 } 
 
-input[type="radio"] { 
-	margin-right: 8px; 
-} 
+ 
 
 label { 
 	display: block; 
@@ -145,60 +140,197 @@ h1 {
         </div>
 
 
-	<h1>EliteCraft</h1>
+	 
 
 	<div class="form-box"> 
 		<div class="textup"> 
-			<i class="fa fa-solid fa-clock"></i> 
+			
 			It only takes two minutes!! 
 		</div> 
-		<form onsubmit="thankYou()"> 
+		<form onsubmit="return checkElement()"> 
 			<label for="uname"> 
-				<i class="fa fa-solid fa-user"></i> 
+				  
 				Name 
 			</label> 
-			<input type="text" id="uname"
-				name="uname" required> 
-
-			<label for="email"> 
-				<i class="fa fa-solid fa-envelope"></i> 
-				Email Address 
-			</label> 
-			<input type="email" id="email"
-				name="email" required> 
-
-			<label for="phone"> 
-				<i class="fa-solid fa-phone"></i> 
-				Phone No 
-			</label> 
-			<input type="tel" id="phone"
-				name="phone" required> 
-
+			<input type="text" id="uname" name="uname" required> 
+			<p id="name_error" style="color: red;"></p>
+			<label for="email"> Email Address </label> 
+			<input type="email" id="email" name="email" required> 
+			<p id="email_error" style="color: red;"></p>
+			<label for="phone"> Phone No </label> 
+			<input type="tel" id="phone"name="phone" required> 
+			<p id="phone_error" style="color: red;"></p>
+			<div class="text-center">
+				<label> Do you satisfy with our service? </label> 
+				<div class="form-check form-check-inline ">
+					<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="yes" onclick="yes()" checked>
+					<label class="form-check-label1" for="inlineRadio1">Yes </label>
+				</div>
+				<div class="form-check form-check-inline">
+					<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="no" onclick="no()">
+					<label class="form-check-label2" for="inlineRadio2" onclick="no()">No</label>
+					
+				</div>
+				<p id="apolo_massage" style="color: #1b245c;"></p>
+			</div>
+			
 			<label> 
-				<i class="fa-solid fa-face-smile"></i> 
-				Do you satisfy with our service? 
+				 
+				What is the most things that made you satisfy? 
 			</label> 
-			<div class="radio-group"> 
-				<input type="radio" id="yes"
-					name="satisfy" value="yes" checked> 
-				<label for="yes">Yes</label> 
-
-				<input type="radio" id="no"
-					name="satisfy" value="no"> 
-				<label for="no">No</label> 
-			</div> 
-
+			<div class="container text-center">
+				<div class="form-check form-check-inline">
+					<input class="form-check-input" type="checkbox" id="check1" value="option1">
+					<label class="form-check-label" for="inlineCheckbox1">Multimedia</label>
+				</div>
+				<div class="form-check form-check-inline">
+					<input class="form-check-input" type="checkbox" id="check2" value="option2">
+					<label class="form-check-label" for="inlineCheckbox2">Support Team</label>
+				</div>
+				<div class="form-check form-check-inline">
+					<input class="form-check-input" type="checkbox" id="check3" value="option3">
+					<label class="form-check-label" for="inlineCheckbox2">Overall Design</label>
+				</div>
+				<div class="form-check form-check-inline">
+					<input class="form-check-input" type="checkbox" id="check4" value="option4">
+					<label class="form-check-label" for="inlineCheckbox2">Prices</label>
+				</div>
+				<div class="form-check form-check-inline">
+					<input class="form-check-input" type="checkbox" id="check5" value="option5">
+					<label class="form-check-label" for="inlineCheckbox2">Location</label>
+				</div>
+				<p id="after_NO" style="color: #1b245c;"></p>  
+			</div>
 			<label for="msg"> 
-				<i class="fa-solid fa-comments"
-				style="margin-right: 3px;"></i> 
+				 
 				Write your Suggestions: 
 			</label> 
 			<textarea id="msg" name="msg"
 					rows="4" cols="10" required> 
 			</textarea> 
-			<button type="submit" onclick="thankYou">Submit</button>
+			<p id="massage_textArea" style="color: red;"></p>
+			<button type="submit"  >Submit</button>
 		</form> 
 	</div> 
 </body> 
+<script>
+	/**
+	 * This me3htod is to validate the user input in the phone  if he entered  the phone it must be 8 numbers or start with + if it is international and without letters or sympols
+	 * parameters:a text that represent the user input in the phone area
+	 */
+	function isValidPhone(phone){
+		var phone_withowt_space=phone.replace(/\s/g, "");
+    if(phone_withowt_space.length==8 && consistsOfNumbers(phone_withowt_space)){
+		return true;
+	}
+	else if(phone_withowt_space.startsWith("+")&&consistsOfNumbers(phone_withowt_space.substring(1))){
+		return true;
+	}
+}
+	/**
+	 * This me3htod is to validate the user input in the email  if he entered extension other than .com .net .squ
+	 * parameters:a text that represent the user input in the email area
+	 */
+	function isValidEmail(email){
+		if(email.length>3){//cheak if the email more then 3 letters
+			var last4=email.substring(email.length-4);//make a new word without thwe rest of the email just last 4 letters
+			if(last4===".com" || last4===".net" || last4==".squ"){//see if the new word is one of these 
+				return true;//if it is give true 
+			}
+			else{
+				return false;//otherwise false
+			}
+		}
+		else{
+			return false;//otherwise false
+		}
 
+	}
+	/**
+	 * This me3htod is to validate the user input in the name if he entered symbols or letters it will give false
+	 * parameters:a text that represent the user input in the name area
+	 */
+	function isValidName(name) {
+    	return /^[a-zA-Z]+\s[a-zA-Z]+$/.test(name);//test if the name contain only letters and space no matter uppercase or lower
+}
+	/**
+	 * This me3htod is to validate the user input in the txtarea if he entered more than 2 words it will be valid
+	 * parameters:a text that represent the user input in the text area
+	 */
+	function isValidTextArea(text) {
+		var text2 = text.trim().split(/\s+/);//split the user input by  the white spaces
+		return text2.length > 2; // see if the user entered more then 2 words return true
+	}
+	/**
+	 * This me3htod will use all the sub methods and do some actions acording to that such as writing messages 
+	 * parameters:None
+	 */
+	function checkElement() {
+		 
+		if(!isValidName(document.getElementById("uname").value)){//validate the name it must be two words without symbols or numbers
+			document.getElementById("name_error").innerHTML="Plase Enter Your first and Last name Without sumbols or numbers .";//otherwise give this masaage
+			return false;//this to avoid submitting the form with the unvalid input 
+			
+		}
+		if(!isValidEmail(document.getElementById("email").value)){//validate the email it must be end with .com or .net or .squ
+			document.getElementById("email_error").innerHTML='Plase Enter an email that ends with ".com" , ".squ" or ".net" only.' ;//the error massage
+			return false;//this to avoid submitting the form with the unvalid input 
+
+		}
+		if( !isValidPhone(document.getElementById("phone").value)){//validate the phone it must be 8 numbers or start with + if it is international and without letters or sympols
+
+			document.getElementById("phone_error").innerHTML='make sure that the number contain 8 numbers only if you are not in oman use "+XXX XXXXX" without using letters' ;//the error massage
+			
+			return false;//this to avoid submitting the form with the unvalid input 
+		}
+		if(!isValidTextArea( document.getElementById("msg").value)){//validate the textarea it must be more then 2 words 
+			document.getElementById("massage_textArea").innerHTML="Please Enter more than 2 words in order to understand clearly what are you suggesting ."//the error massage
+			return false;//this to avoid submitting the form with the unvalid input 
+
+		}
+		alert("Thanks for the suggestion will We will consider it and appreciate your guidance! ")
+		 
+		 
+		
+	   
+	}
+	/**
+	 * This me3htod will see if the website didn't satisfy him it will make the cheak box disabled and print apoligize massage
+	 * parameters:None
+	 */
+	function no(){
+		document.getElementById("apolo_massage").innerHTML="We apologize for your negative experience. Please provide details in the suggestions box regarding why you had a bad experience.";
+		document.getElementById("check1").disabled = true;
+		document.getElementById("check2").disabled = true;
+		document.getElementById("check3").disabled = true;
+		document.getElementById("check4").disabled = true;
+		document.getElementById("check5").disabled = true;
+		document.getElementById("after_NO").innerHTML="Disabeled because of previous answer.";
+
+	}
+	/**
+	 * This me3htod will do the opissite of no() fonction
+	 * parameters:None
+	 */
+	function yes(){
+		document.getElementById("apolo_massage").innerHTML="";
+		document.getElementById("check1").disabled = true;
+		document.getElementById("check2").disabled = true;
+		document.getElementById("check1").disabled = false;
+		document.getElementById("check2").disabled = false;
+		document.getElementById("check3").disabled = false;
+		document.getElementById("check4").disabled = false;
+		document.getElementById("check5").disabled = false;
+		document.getElementById("after_NO").innerHTML="";
+
+	}
+	/**
+	 * This me3htod will see if the user entered only numbures
+	 * parameters:None
+	 */
+	function consistsOfNumbers(inputString) {
+    return /^\d+$/.test(inputString);
+}
+	
+</script>
 </html>
