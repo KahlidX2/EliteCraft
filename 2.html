@@ -232,6 +232,10 @@ h1 {
 	 * parameters:a text that represent the user input in the email area
 	 */
 	function isValidEmail(email){
+		const atSymbolIndex = email.indexOf('@');//see if the email contain "@"
+    		if (atSymbolIndex === -1 || atSymbolIndex === 0) {//if it not found it will return -1 then it will go throug the if statmint and decide
+        		return false;
+    		}
 		if(email.length>3){//cheak if the email more then 3 letters
 			var last4=email.substring(email.length-4);//make a new word without thwe rest of the email just last 4 letters
 			if(last4===".com" || last4===".net" || last4==".squ"){//see if the new word is one of these 
