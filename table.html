@@ -26,8 +26,7 @@
         </form>
         <table id="properties-table" class="table table-bordered table-hover" border="border">
             <tr class="all_rows row_1 text-center">
-                <th >Building/Info </th>
-                <th>Date</th><th>Area </th><th>Floor/s</th><th>Cost</th><th>Location</th><th>Picture</th>
+                <th >Building/Info </th><th>Date</th><th>Area </th><th>Floor/s</th><th>Cost</th><th>Location</th><th>Picture</th>
             </tr>
             <tr  class="all_rows row_2 text-center">
                 <th class="align-middle">Desert House</th>
@@ -163,14 +162,15 @@
             function searchData() {
                 var fond=false;
                 const query = document.querySelector("#search-query").value.toLowerCase();
-                // Clear previous table content
-                tableBody.innerHTML = "";
+                // rest table content but make the headers there
+                tableBody.innerHTML = "<tr><th >Building/Info </th><th>Date</th><th>Area </th><th>Floor/s</th><th>Cost</th><th>Location</th><th>Picture</th></tr>";
                 // Filter the properties array based on the search query
-                for (let i = 0; i < properties.length; i++) {
+                for (let i = 0; i < properties.length; i++) {//itirate in the list content and see which one contain the targetted text
                     const property = properties[i];
-                    if (property.name.toLowerCase().includes(query) || property.location.toLowerCase().includes(query)) {
-                        const row = document.createElement("tr");
+                    if (property.name.toLowerCase().includes(query) || property.location.toLowerCase().includes(query)) {//cheacking id it contain and ignoring the letter case
+                        const row = document.createElement("tr");//creat a row to make the user see the search result
                         row.classList.add("text-center");
+                        //adding the  info from the object previously initilized
                         row.innerHTML = '<th class="align-middle">Building/Info</th>' +
                                         '<td class="align-middle">' + property.date + '</td>' +
                                         '<td class="align-middle">' + property.area + '</td>' +
@@ -178,12 +178,12 @@
                                         '<td class="align-middle">' + property.cost + '</td>' +
                                         '<td class="align-middle">' + property.location + '</td>' +
                                         '<td class="align-middle"><img src="' + property.picture + '" width="200" height="130"></td>';
-                        tableBody.appendChild(row);
+                        tableBody.appendChild(row);//use the built in function to insert the row to the table 
                         fond=true;
                     }
                 }
                 if(!fond){
-                    document.getElementById("error").style="display:block;color:red;"
+                    document.getElementById("error").style="display:block;color:red;"//massage if the user entered non exist target
 
                 }
             }
