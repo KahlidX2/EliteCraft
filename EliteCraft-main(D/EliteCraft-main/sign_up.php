@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="icon" type="image/png" href="Logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Rubik+Mono+One&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+
+body {
+   
+  /* solid background */
+  
+  /* photo background */
+
+  
+  display: flex;
+  
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;    
+  height: 100vh;  
+  margin: 0;
+  padding: 0;
+overflow-x: hidden;
+}
+.half-color{
+    position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            background-color: #9D7D60; 
+    background: linear-gradient(45deg, rgba(157, 125, 96, 1) 0%, rgb(227, 192, 159) 100%);    
+
+}
+
+.half-image {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background-image: url(assets/Orange-Spring-House-by-Studio-Esteta-Issue-13-Feature-The-Local-Project-Image-24.jpg); /* URL of your image here */
+            background-size: cover;
+            background-position: center;
+        }
+
+._container {
+    position: relative;
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(176, 133, 96, 0.25);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);  
+  padding: 38px;  
+  filter: drop-shadow(0 30px 10px rgba(0,0,0,0.125));
+  display: flex;
+  height: auto;
+  
+  flex-direction: column;
+  align-items: center;
+  justify-content:center;
+  text-align: center;
+  left: -200px;
+  align-self: center;
+  
+}
+
+._wrapper {
+  width: 100%;
+  height: auto;
+  
+}
+
+
+
+h1{
+  font-family: 'Righteous', sans-serif;
+  color: rgba(255,255,255,0.98);
+  text-transform: uppercase;
+  font-size: 2.4rem;
+}
+
+p {
+  color: #fff;
+  font-family: 'Lato', sans-serif;
+  text-align: center;
+  font-size: 0.8rem;
+  line-height: 150%;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+
+
+._btn {
+  border: none;
+  padding: 12px 24px;
+  border-radius: 24px;
+  font-size: 12px;
+  font-size: 0.8rem;  
+  letter-spacing: 2px;  
+  cursor: pointer;
+}
+
+._btn + ._btn {
+  margin-left: 10px;
+}
+
+._outline {
+  background: transparent;
+  color: rgb(82, 66, 48);
+  border: 1px solid rgb(119, 97, 71);
+  transition: all .3s ease;
+  
+}
+
+._outline:hover{
+  transform: scale(1.125);
+  color: rgba(255, 255, 255, 0.9);
+  border-color: rgba(255, 255, 255, 0.9);
+  transition: all .3s ease;  
+}
+
+._signup form{
+    display: flex;
+    flex-direction:  column;
+    align-items: center;
+    gap: 40px;
+    justify-content: space-around;
+    h2{
+        font-family: 'Righteous', sans-serif;
+  color: #3E362F;
+  text-transform: uppercase;
+  font-size: 2.4rem;
+  margin: 0;
+    }
+}
+input[type=text],  input[type=email], input[type=password]{
+	appearance: none;
+    width: 300px;
+	border: none;
+	outline: none;
+	border-bottom: .2em solid rgb(119, 97, 71);
+	background: rgb(119, 97, 71, 0.2);
+	border-radius: .2em .2em 0 0;
+	padding: .4em;
+	color: rgb(119, 97, 71);
+}
+._container1{
+    position: relative;
+    display: flex;
+    width: 100%;
+    /* justify-content: center; */
+    flex-direction: row;
+    margin-top: 400px;
+    margin-bottom: 90px;
+    .text1{
+        width: 50%;
+        p{
+            margin-left: 40px;
+            font-weight: bold;
+            font-family: "Open Sans", sans-serif;
+        font-size: 80px;
+        color: #3E362F;
+        text-align: left;
+        }
+
+    }
+}
+
+footer{
+  position: relative;
+  margin-top: 150px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="main">
+        
+    </div>
+    <div class="half-color"></div>
+    <div class="half-image"></div>
+    <header id="header" class="fixed-top d-flex align-items-center">
+        <div class="container d-flex justify-content-between">
+    
+          <div class="logo">
+            <a href="index.html"><img src="assets/logo.png" alt="" class="img-fluid"></a>
+          </div>
+    
+          <nav id="navbar" class="navbar">
+            <ul>
+              <li><a class="nav-link scrollto" href="index.html">Home</a></li>
+              <li><a class="nav-link scrollto" href="About_As.html">About</a></li>
+              <li><a class="nav-link scrollto" href="projects.html">Project</a></li>
+              <li><a class="nav-link scrollto" href="Contact_us.html">Contact</a></li>
+              <li><a class="nav-link scrollto" href="feedpack.html">Feedpack</a></li>
+              <li><a class="nav-link scrollto" href="MiniGame/MiniGame.html">Fun Page</a></li>
+              <li><a class="nav-link scrollto active" href="calc.html">Build Calcolator</a></li>
+              <li class="dropdown"><a href="#" style="text-decoration: none;"><span>REGISTER</span> <i class="bi bi-chevron-down"></i></a>
+                <ul>
+                  <li><a href="sign_in2.html">Log in</a></li>
+                  <li><a href="sign_up.html">Sign up</a></li>
+                </ul>
+              </li>
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+          </nav>
+    
+        </div>
+      </header>
+      <section id="hero" class="container-fluid">
+        <div class="_container1 container-fluid">
+            <div class="text1">
+                
+                <p>SIGN UP <br>
+                    NOW AND <br>
+                    START <br>
+                    DREAMING</p>
+            </div>
+        <div class="_container">
+            
+            <div class="_wrapper">
+              
+              <div class="_signup">
+                <form action="https://httpbin.org/get" method="GET">
+                    <h2>Sign Up</h2>
+                    
+                    <input type="text" placeholder="Name"/>
+                    <input type="email" placeholder="Email Address"/>
+                    <input type="password" placeholder="Create password"/>
+                    
+                    <button type="submit" class="_btn _outline">SIGN UP</button>
+            
+                </form>
+              </div>
+               
+             
+            </div>
+           
+        </div>
+      </section>
+    
+    </div>
+
+    <div class="container-fluid">
+
+        <footer class="_footer_bg">
+        <div class="container p-4">
+          <div class="row">
+            <div class="col-lg-6 col-md-12 mb-4">
+            
+              <p>
+                EliteCraft is a pioneering online construction company with a rich history of over twenty years in the industry. They specialize in a wide array of civil construction services, playing a significant role in shaping the infrastructure of the future.
+              </p>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+              
+              <ul class="list-unstyled mb-0">
+                <li class="mb-1">
+                  <a href="#!" style="color: #4f4f4f;">Frequently Asked Questions</a>
+                </li>
+                <li class="mb-1">
+                  <a href="#!" style="color: #4f4f4f;">Location</a>
+                </li>
+                <li class="mb-1">
+                  <a href="#!" style="color: #4f4f4f;">Pricing</a>
+                </li>
+                <li>
+                  <a href="#!" style="color: #4f4f4f;">what we do?</a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+              
+              <table class="table table-striped" style="margin-top: 30px;">
+                <tbody>
+                  <tr>
+                    <td>Mon - Fri:</td>
+                    <td>8am - 9pm</td>
+                  </tr>
+                  <tr>
+                    <td>Sat - Sun:</td>
+                    <td>8am - 1am</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+          © 2024 Copyright: EliteCraft Team
+        </div>
+       
+      </footer>
+      
+    </div>
+    
+</body>
+</html>
