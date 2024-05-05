@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Tip Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            background-color: #9D7D60;
+        }
+        ._container3 {
+            width: 80%;
+            margin: auto;
+        }
+        .soph{
+            margin: 10px;
+        }
+        p{
+            color: black;
+        }
+        h1{
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    
+    <header id="header" class="fixed-top d-flex align-items-center">
+        <div class="container d-flex justify-content-between">
+    
+          <div class="logo">
+            <a href="index.html"><img src="assets/logo.png" alt="" class="img-fluid"></a>
+          </div>
+    
+          <nav id="navbar" class="navbar">
+            <ul>
+              <li><a class="nav-link scrollto" href="index.html">Home</a></li>
+              <li><a class="nav-link scrollto" href="About_As.html">About</a></li>
+              <li><a class="nav-link scrollto" href="projects.html">Project</a></li>
+              <li><a class="nav-link scrollto" href="Contact_us.html">Contact</a></li>
+              <li><a class="nav-link scrollto" href="feedpack.html">Feedpack</a></li>
+              <li><a class="nav-link scrollto" href="MiniGame/MiniGame.html">Fun Page</a></li>
+              <li><a class="nav-link scrollto active" href="calc.html">Build Calcolator</a></li>
+              <li class="dropdown"><a href="#" style="text-decoration: none;"><span>REGISTER</span> <i class="bi bi-chevron-down"></i></a>
+                <ul>
+                  <li><a href="sign_in2.html">Log in</a></li>
+                  <li><a href="sign_up.html">Sign up</a></li>
+                </ul>
+              </li>
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+          </nav>
+    
+        </div>
+      </header>
+      <section id="hero" style="color: black !important;">
+        <div class="container1 container-fluid">
+    <div class="_container3 py-5">
+        <div class="bg-white rounded-lg shadow-lg p-5">
+            <h1 class="text-2xl font-bold text-center text-gray-800 mb-4">Build Calcolator</h1>
+            <div class="mb-3">
+                <label for="Area" class="form-label"><h6>Land Area in m<sup>2</sup>:</h6></label>
+                <input type="number" id="Area" placeholder="Area in meter sequare" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="floor" class="form-label"><h6>Number of Floor:</h6></label>
+                <input type="number" id="floor" placeholder="Estematied Number of Floor " class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="services" class="form-label"><h6>What is the building type You are Planing to Build?</h6></label>
+                <select id="services" class="form-select">
+                    
+                    <option value="Residential" selected >Residential</option>
+                    <option value="Skyscraper">Skyscraper</option>
+                    <option value="agricultural">Agricultural</option>
+                    <option value="industrial">Industrial</option>
+                    <option value="Residential-Commercial">Residential Commercial</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <h6 for="Sophistication" class="form-label sophs">Sophistication</h6><br>
+                <input type="radio" name="Sophistication" value="Normal" id="Normal" checked> Normal
+                <input type="radio" name="Sophistication" value="Fancy" id="Fancy"> Fancy
+                <input type="radio" name="Sophistication" value="Luxury" id="Luxury"> Luxury
+                <input type="radio" name="Sophistication" value="Very Luxury" id="Very_Luxury"> Very Luxury
+            </div>
+            <div class="text-center">
+                <button id="calculate" class="btn btn-primary btn-block" onclick="handleInput()">Calculate</button>
+            </div>
+            <div id="volume" class="volume text-2xl font-bold text-center text-gray-800 mt-4"></div>
+        
+        <div class="  rounded-lg  p-5">
+            <div class="card flex-row border-0" style="margin-bottom: 6vh;"><img class="card-img-left " width="200vw" height="200vw" src="assets/cement.jpeg" style="border-radius:10px;">
+                <div class="card-body">
+                    <h4 class="card-title h5 h4-sm">Requirment 1</h4><h2>Cement</h2>
+                    <p class="card-text">Cement is very important for the building process it's quality can make significant change in the overall project quality you can pick any brand if you want our suggestion is to think about "Oman Cement" company </p>
+                    <p>Total number of Cement Bags is :<span id="cement_bag_js"></span></p><!--every 5 meters will require 1 Cement Bag-->
+                </div>
+            </div>
+
+        </div>
+        <div class="  rounded-lg  p-5">
+            <div class="card flex-row border-0" style="margin-bottom: 6vh;"><img class="card-img-left " width="200vw" height="200vw" src="assets/iron.jpeg" style="border-radius:10px;">
+                <div class="card-body">
+                    <h4 class="card-title h5 h4-sm">Requirment 2</h4><h2>Cast Iron</h2>
+                    <p class="card-text">Cast metal or as localy called elloy metal is very important requirment and its quality will have a significant impact on the building strength and structure we suggest "Jindal Shadeed Iron and Steel" company .</p>
+                    <p>Total number of Cement Bags is :<span id="cast_iron_js"></span></p><!--every 1 meters will require 6 Cast kg-->
+                </div>
+            </div>
+
+        </div>
+        <div class="  rounded-lg  p-5">
+            <div class="card flex-row border-0" style="margin-bottom: 6vh;"><img class="card-img-left" width="200vw" height="200vw" src="assets/6abu8.jpeg" style="border-radius:10px;">
+                <div class="card-body">
+                    <h4 class="card-title h5 h4-sm">Requirment 3</h4><h2>Bricks</h2>
+                    <p class="card-text">Bricks play an important role in construction; their quality greatly impacts project integrity. While various brands exist, we recommend "Oman Concrete Products" company for impressive results.</p>
+                    <p>Total number of Bricks is approximately :<span id="briks_js"></span></p><!--every 1 meters will require 133 Brick-->
+                </div>
+            </div>
+
+        </div>
+        <div class="requier  rounded-lg  p-5">
+            <div class="card flex-row border-0" style="margin-bottom: 6vh;"><img class="card-img-left" width="200vw" height="200vw" src="assets/wires.jpeg" style="border-radius:10px;">
+                <div class="card-body">
+                    <h4 class="card-title h5 h4-sm">Requirment 4</h4><h2>Wires</h2>
+                    <p class="card-text">Wires are essential in electrical systems, their quality directly influences safety and performance. Any brand is viable, yet we endorse "NUHAS OMAN L.L.C." company for reliability.</p>
+                    <p>Total number of Cement Bags is :<span id="wires_js"></span></p><!--every 1 meters will require 6.5 meter of Wire-->
+                </div>
+            </div>
+
+        </div>
+        <div class="Bill" style="display: none;" id="Bill_js">
+            <div class="prices">
+                <table border="border" class="table" >
+                    <tr>
+                        <th><h4>Material</h4></th>
+                        <th>Unit Price</th>
+                        <th>Needed Units</th>
+                        <th>Time to Arrive</th>
+                        <th>Company</th>
+                        <th>Total</th>
+                        
+                    </tr>
+                    <tr>
+                        <td>Cement</td>
+                        <td>1.418 OMR</td>
+                        <td id="cement_table">X</td>
+                        <td id="cement_table_a">X</td>
+                        <td><a href="https://occ.om/omancementco/" target="_blank">Oman Cement</a></td>
+                        <td id="C_T_T">X</td>
+                        
+                    </tr>
+                    <tr>
+                        <td>Iron</td>
+                        <td>272.18 OMR</td>
+                        <td id="iron_table">X</td>
+                        <td id="iron_table_a">X</td>
+                        <td><a href="https://jindalshadeed.com/" target="_blank">Jindal Shadeed Iron and Steel</a></td>
+                        <td id="I_T_T">X</td>
+                        
+                    </tr>
+                    <tr>
+                        <td>Bricks</td>
+                        <td>0.165 OMR</td>
+                        <td id="brick_table">X</td>
+                        <td id="brick_table_a">X</td>
+                        <td><a href="https://www.ocpblock.com/" target="_blank">Oman Concrete Products</a></td>
+                        <td id="B_T_T">X</td>
+                        
+                    </tr>
+                    <tr>
+                        <td>Wires</td>
+                        <td>0.294 OMR</td>
+                        <td id="Wire_table">X</td>
+                        <td id="Wire_table_a">X</td>
+                        <td><a href="https://www.nuhasoman.com/" target="_blank">NUHAS OMAN L.L.C.</a></td>
+                        <td id="W_T_T">X</td>
+                        
+                    </tr>
+                    <tr >
+                        <td colspan="5" id="total_price_text">Total prices</td>  
+                        <td id="totall">X</td>  
+                    </tr>
+                </table>
+                <div class="row justify-content-center">
+                    <div class="col-auto">
+                        <h3 class="text-center">After Discount Total/Tax Total:<span id="after_Dis"></span></h3>
+                    </div>
+                </div>
+                
+
+            </div>
+        </div>
+    </div>
+    </div>
+        </div>
+      </section>
+    
+    <script>
+        function addCommas(number) {
+    
+            return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+        function handleInput() {
+            
+            document.getElementById("Bill_js").style.display = "block";
+            var area = document.getElementById("Area").value;
+            var height = document.getElementById("floor").value;//will recive num of floors
+            if (area <= 0 || height<=0 ||area=== ""||height=== "") {
+            alert("Please Enter a valid input .");
+        }
+        else{
+            var sophistication = document.querySelector('input[name="Sophistication"]:checked').value;
+            //the more luxury the building is the more its roof is height then the volume is more
+            if(sophistication == "Normal") {
+                height = height * 2.5;                
+            }
+            else if(sophistication == "Fancy") {
+                height = height * 3.34;               
+            }
+            else if(sophistication == "Luxury") {
+                height = height * 5.5;                
+            }
+            else if(sophistication == "Very Luxury") {
+                height = height * 6.8;                
+            }
+            //every 5 meters will require 1 Cement Bag
+            //every 1 meters will require 6 Cast kg
+            //every 1 meters will require 133 Brick
+            //every 1 meters will require 6.5 meter of Wire
+            var volume= area*height;
+            var cement= (volume/5).toFixed(3);
+            var iron=volume*6/1000 //divide by 1000 to get the kg to tonne unit 
+            var brick=volume*160;
+            var wire=volume*6.5;
+            document.getElementById("volume").innerHTML = "<p>Volume is approximately: " + addCommas(volume.toFixed(3)) + " m<sup>3</sup></p>";
+            document.getElementById("cement_bag_js").innerHTML= addCommas(cement)+" bags.";
+            document.getElementById("cast_iron_js").innerHTML= addCommas(iron.toFixed(3))+" Tonne";
+            document.getElementById("briks_js").innerHTML= addCommas(brick)+" pieces";
+            document.getElementById("wires_js").innerHTML= addCommas(wire)+" Meter.";
+            document.getElementById("iron_table").innerHTML=addCommas(iron);
+            document.getElementById("brick_table").innerHTML=addCommas(brick);
+            document.getElementById("Wire_table").innerHTML=addCommas(wire);
+            document.getElementById("cement_table").innerHTML=addCommas(cement);
+            document.getElementById("cement_table_a").innerHTML=addCommas((cement/70).toFixed(0)) +" Days";
+            document.getElementById("iron_table_a").innerHTML=addCommas((iron/2.5).toFixed(0)) +" Days";
+            document.getElementById("brick_table_a").innerHTML=addCommas((brick/20000).toFixed(0) )+" Days";
+            document.getElementById("Wire_table_a").innerHTML=addCommas((wire/2000).toFixed(0)) +" Days";
+            //calc the totla
+            var C_T_T=cement*1.418;
+            var I_T_T=iron*272.18;
+            var B_T_T=brick*0.165;
+            var W_T_T=wire*0.294;
+            var all=(C_T_T+I_T_T+B_T_T+W_T_T);
+            document.getElementById("C_T_T").innerHTML=addCommas(C_T_T.toFixed(2))+" OMR";
+            document.getElementById("I_T_T").innerHTML=addCommas(I_T_T.toFixed(2))+" OMR";
+            document.getElementById("B_T_T").innerHTML=addCommas(B_T_T.toFixed(2))+" OMR";
+            document.getElementById("W_T_T").innerHTML=addCommas(W_T_T.toFixed(2))+" OMR";
+            document.getElementById("totall").innerHTML=addCommas(all.toFixed(2))+" OMR";
+            var build_type=document.getElementById("services").value;
+            var dis=1;
+            if(build_type=="Residential"){
+                dis=-25/100;//discount by quarter from the government
+            }
+            else if(build_type=="Skyscraper"){
+                dis=10/100;//add 5% scince he is rich or they are
+            }
+            else if(build_type=="agricultural"){
+                dis=-30/100;//discount 30% the government want to support agricultural builkdings
+            }
+            else if(build_type=="industrial"){
+                dis=0/100; //dont effect
+            }
+            else if(build_type=="Residential-Commercial"){
+                dis=5/100;//add 5% scince he have more mobney
+            }
+            document.getElementById("after_Dis").innerHTML=addCommas((all+all*dis).toFixed(3))+" OMR";
+               
+        }
+
+        }
+        
+    
+    </script>
+</body>
+</html>
